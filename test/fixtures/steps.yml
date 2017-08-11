@@ -4,12 +4,8 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one:
-  name: MyString
-  cook_time: 9.99
-  prep_time: 9.99
-
-two:
-  name: MyString
-  cook_time: 9.99
-  prep_time: 9.99
+one: {}
+# column: value
+#
+two: {}
+# column: value
