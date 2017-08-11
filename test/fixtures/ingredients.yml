@@ -5,7 +5,9 @@
 # below each fixture, per the syntax in the comments below
 #
 one:
-  description: MyText
+  name: MyString
+  measurements: 9.99
 
 two:
-  description: MyText
+  name: MyString
+  measurements: 9.99
