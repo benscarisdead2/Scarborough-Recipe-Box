@@ -2,10 +2,12 @@
 
 one:
   name: MyString
-  cook_time: 9.99
-  prep_time: 9.99
+  email: MyString
+  password_digest: MyString
+  recipe: one
 
 two:
   name: MyString
-  cook_time: 9.99
-  prep_time: 9.99
+  email: MyString
+  password_digest: MyString
+  recipe: two

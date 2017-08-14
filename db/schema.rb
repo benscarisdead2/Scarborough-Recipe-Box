@@ -12,29 +12,35 @@
 
 ActiveRecord::Schema.define(version: 20170814091444) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "ingredients", force: :cascade do |t|
-    t.string "name"
-    t.decimal "measurements"
+    t.decimal "amount"
+    t.string "measurements"
+    t.string "item"
+    t.bigint "recipe_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "step_id"
-    t.integer "recipe_id"
     t.index ["recipe_id"], name: "index_ingredients_on_recipe_id"
-    t.index ["step_id"], name: "index_ingredients_on_step_id"
   end
 
   create_table "recipes", force: :cascade do |t|
+    t.string "name"
+    t.decimal "cook_time"
+    t.decimal "prep_time"
+    t.string "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
+    t.bigint "user_id"
     t.index ["user_id"], name: "index_recipes_on_user_id"
   end
 
   create_table "steps", force: :cascade do |t|
     t.text "description"
+    t.bigint "recipe_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "recipe_id"
     t.index ["recipe_id"], name: "index_steps_on_recipe_id"
   end
 
@@ -46,4 +52,7 @@ ActiveRecord::Schema.define(version: 20170814091444) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "ingredients", "recipes"
+  add_foreign_key "recipes", "users"
+  add_foreign_key "steps", "recipes"
 end
