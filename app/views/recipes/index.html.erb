@@ -1,0 +1,16 @@
+<h1>Recipe List</h1>
+<%= link_to "New Recipe", new_recipe_path %>
+
+<br>
+<br>
+<% @recipes.each do |recipe| %>
+    <p>
+    <%= recipe.name %>
+    <%= recipe.prep_time %>
+    <%= recipe.cook_time %>
+    <%= recipe.url %>
+    <%= link_to 'Show', recipe_path(recipe) %>
+    <%= link_to "Edit", edit_recipe_path(recipe) %>
+    <%= link_to "Destroy", recipe, method: :delete %>
+    </p>
+<% end %>
